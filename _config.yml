@@ -1,30 +1,20 @@
-title: WeatheredSouls
-description: So far not having a lot of luck
-show_downloads: true
+title:             Square Zero
+email:             sssurajsuraj@gmail.com
+description:       Silent Observations
+author:            J
+#url:               "localhost:4000"
+url:               "http://squarezero.github.io/"
+baseurl:
 
-baseurl: "/blog" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
-url: "https://weatheredsouls.github.io" # change this to the base hostname & protocol for your site
+# Social Profiles
+#twitter_username:  SBootstrap
+#github_username:   BlackrockDigital
+#facebook_username: StartBootstrap
 
-
-google_analytics:
-
-# cayman-blog date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-cayman-blog:
-  date_format: "%b %-d, %Y"
-
-theme: # leave it empty
-
-# social
-author: 
-image: /thumbnail-jumbo.png
-twitter:
-  username: 
-
+# Build settings
+markdown:          kramdown
+paginate:          10
+paginate_path:     "/posts/page:num/"
 plugins:
-  - jekyll-target-blank
-
-target-blank:
-    rel: nofollow
-
-header_page_refs: ['now', 'about', 'contact']
+  - jekyll-feed
+  - jekyll-paginate

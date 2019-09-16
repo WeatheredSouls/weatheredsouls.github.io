@@ -1,222 +1,107 @@
-# The Cayman Blog theme
+# [Square Zero - Dark and Elegant Blog](https://squarezero.github.io/)
 
-[![Build Status](https://travis-ci.org/lorepirri/cayman-blog.svg?branch=master)](https://travis-ci.org/lorepirri/cayman-blog) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman-blog.svg)](https://badge.fury.io/rb/jekyll-theme-cayman-blog)
+## [Based off Start Bootstrap - Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/) - Official Jekyll Version
+[Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
 
-*Cayman Blog is a Jekyll theme for GitHub Pages. It is based on the nice [Cayman theme](https://pages-themes.github.io/cayman/), with blogging features added. You can [preview the theme to see what it looks like](http://lorepirri.github.io/cayman-blog), or even [use it today](#usage).*
+This repository holds the official Jekyll version of Square Zero!
 
-<img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail.png" alt="Thumbnail of cayman-blog" style="max-width:30%; border: 1px solid grey;"/> <img src="https://raw.githubusercontent.com/lorepirri/cayman-blog/master/thumbnail-mobile.png" alt="Thumbnail of cayman-blog for mobile" style="width: 239px; height: 424px;"/>
+## Preview
 
-## Install
+<img src="https://i.imgur.com/LLwpiPS.png" width="500">
+<img src="https://i.imgur.com/0tVWNjl.jpg" width="300">
+<img src="https://i.imgur.com/RNBwPo1.png" width="300">
 
-Cayman Blog Theme has been developed as a Jekyll theme gem for easier use. It is also 100% compatible with GitHub Pages — just with a more involved installation process according to whether you’re _running Jekyll v3.3+ and self-hosting_, or if you’re *hosting with GitHub Pages*.
+[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/templates/clean-blog.jpg)](http://blackrockdigital.github.io/startbootstrap-clean-blog-jekyll/)
 
-## Self hosting
+## Installation & Setup
 
-If you’re running Jekyll v3.3+ and **self-hosting** you can quickly install the theme as Ruby gem:
+### Using RubyGems:
 
-1. Add this line to your Jekyll site’s Gemfile:
+When installing the theme using RubyGems, demo images, posts, and pages are not included. Follow the instructions below for complete setup.
 
-    ```
-    gem "jekyll-theme-cayman-blog"
-    ```
+1. (Optional) Create a new Jekyll site: `jekyll new my-site`
+2. Replace the current theme in your `Gemfile` with `gem "jekyll-theme-clean-blog"`.
+3. Install the theme: `bundle install`
+4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-awesome`.
+5. Build your site: `bundle exec jekyll serve`
 
-2. Add this line to your Jekyll site’s _config.yml file:
+Assuming there are no errors and the site is building properly, follow these steps next:
 
-    ```
-    theme: jekyll-theme-cayman-blog
-    ```
-
-3. Then run Bundler to install the theme gem and dependencies:
-
-    ```
-    script/bootstrap
-    ```
-
-## Hosting with GitHub Pages
-
-If you’re *hosting your blog with GitHub Pages* you’ll have to consider this:
-
-:warning: As stated in the official [Jekyll documentation](https://jekyllrb.com/docs/themes/#installing-a-theme):
-
-> If you’re publishing your Jekyll site on [GitHub Pages](https://pages.github.com/), note that GitHub Pages supports only some gem-based themes. See [Supported Themes](https://pages.github.com/themes/) in GitHub’s documentation to see which themes are supported.
-
-Therefore, this theme, as well as many others, can not be installed in the same way as the ones officially supported by GitHub Pages (e.g. Cayman, Minima), a bit more effort has to be put on.
-
-The easiest way I found to install _Cayman Blog Theme_, is [installing the theme gem](gem-install), and then [converting the gem-based theme to regular theme](https://jekyllrb.com/docs/themes/#converting-gem-based-themes-to-regular-themes).
-
-Alternatively, for new projects, one could fork the whole theme, and keep only the interesting files.
-
-
-### Gem Install
-
-This method is preferred for existing _Jekyll blogs_, as well as newly created ones. Notice that the files `index.md`, `about.md`, `contact.md` will be overwritten (only `index.md` is really needed, the other two are just placeholders).
-
-1. Install the theme gem: ` $ gem install jekyll-theme-cayman-blog`
-3. Run `$ gem env gemdir` to know where the gem was installed
-4. Open the folder shown in the output
-5. Open the folder `gems`
-5. Open the theme folder (e.g. `jekyll-theme-cayman-blog-0.0.5`)
-6. Copy all the files into your newly created or existing blog folder    
-7. Leave empty `theme` your site's `_config.yml`:
-
-    ```yml
-    theme:
-    ```
-6. Modify `_config.yml`, `about.md`, `contact.md` for your project
-7. [Customize the theme](customizing)
-
-### Install as a Fork
-
-1. [Fork the repo](https://github.com/lorepirri/cayman-blog)
-2. Clone down the repo with `$ git clone git@github.com:username/reponame.git`
-3. Delete the `screenshot.png` and `screenshot-mobile.png` files
-3. Empty the `_posts` folder
-4. Install bundler and gems with `$ script/bootstrap`
-5. Run Jekyll with `$ bundle exec jekyll serve`
-6. Modify `_config.yml`, `about.md`, `contact.md`, and `now.md` for your project
-7. [Customize the theme](customizing)
-
-## Customizing
-
-### Configuration variables
-
-Cayman Blog will respect the following variables, if set in your site's `_config.yml`:
-
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
+1. Create the following pages if they do not exist already (or change the extension of exsiting markdown files from `.md` to `.html`):
+   - `index.html` - set to `layout: home`
+   - `about.html` - set to `layout: page`
+   - `contact.html` - set to `layout: page`
+   - `posts/index.html` - set to `layout: page` (you will also need to create a `posts` directory)
+2. Configure the `index.html` front matter. Example:
+```
+---
+layout: home
+background: '/PATH_TO_IMAGE'
+---
+```
+3. Configure the `about.html`, `contact.html`, and `posts/index.html` front matter. Example:
+```
+---
+layout: page
+title: Page Title
+description: This is the page description.
+background: '/PATH_TO_IMAGE'
+---
+```
+4. For each post in the `_posts` directory, update the front matter. Example:
+```
+---
+layout: post
+title: "Post Title"
+subtitle: "This is the post subtitle."
+date: YYYY-MM-DD HH:MM:SS
+background: '/PATH_TO_IMAGE'
+---
 ```
 
-Additionally, you may choose to set the following optional variables:
-
-```yml
-show_downloads: ["true" or "false" to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
-```
-
-### RSS feeds
-
-To enable RSS feeds and also make visible an RSS feeds button in the footer, the [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed) must be installed.
-
-Add this line to your site's Gemfile:
-
-```ruby
-gem 'jekyll-feed'
-```
-
-And then add this line to your site's `_config.yml`:
-
-```yml
-gems:
-  - jekyll-feed
-```
-
-For more information about configuring this plugin, see the official [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed) page.
-
-### SEO tags
-
-Cayman Blog includes simple SEO tags from [jekyll-social-metatags](https://github.com/lorepirri/jekyll-social-metatags). Have a look at the page for its usage.
-
-The usage is compatible with the plugin [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag), which provides a battle-tested template of crowdsourced best-practices.
-
-To switch to a better SEO tags however, one should install [Jekyll Feed plugin](https://github.com/jekyll/jekyll-feed):
-
-1. Add this line to your site's Gemfile:
-
-    ```ruby
-    gem 'jekyll-seo-tag'
-    ```
-
-2. And then add this line to your site's `_config.yml`:
-
-    ```yml
-    gems:
-      - jekyll-seo-tag
-    ```
-
-3. Replace with the following, the `<!-- jekyll-seo-tag -->` comment in your site's `default.html`:
-
-      ```liquid
-      {% seo %}
-      ```
-
-For more information about configuring this plugin, see the official [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag) page.
+For reference, look at the [demo repository](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll) to see how the files are set up.
 
 
-### Stylesheet
+5. Build your site: `bundle exec jekyll serve`
 
-If you'd like to add your own custom styles:
+### Using Core Files
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
+When using the core files, the demo images, posts, and pages are all included with the download. After following the instructions below, you can then go and change the content of the pages and posts.
 
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+1. [Download](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/archive/master.zip) or Clone the repository.
+2. Update the following configuration settings in your `_config.yml` file:
+   - `baserul`
+   - `url`
+   - `title`
+   - `email` (after setting this setting to a working email address, fill out the form on the contact page and send it - then check your email and verify the address and the form will send you messages when used)
+   - `description`
+   - `author`
+   - `twitter_username` (Optional)
+   - `facebook_username` (Optional)
+   - `github_username` (Optional)
+3. Build your site: `bundle exec jekyll serve`
 
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
+## Bugs and Issues
 
-### Layouts
+Please credit the thumbnail artists if you do use others' work.
+Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/issues) here on GitHub!
 
-If you'd like to change the theme's HTML layout:
+## About
 
-1. [Copy the original template](https://github.com/lorepirri/cayman-blog/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
+Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
 
-### Sass variables
+* https://startbootstrap.com
+* https://twitter.com/SBootstrap
 
-If you'd like to change the theme's [Sass variables](https://github.com/lorepirri/cayman-blog/blob/master/_sass/variables.scss), set new values before the `@import` line in your stylesheet:
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
-```scss
-$section-headings-color: #0086b3;
+* http://davidmiller.io
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
 
-@import "{{ site.theme }}";
-```
+Square Zero Theme built by [surajk95](https://github.com/surajk95).
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-### Overriding GitHub-generated URLs
+## Copyright and License
 
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/lorepirri/cayman-blog/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/lorepirri/cayman-blog/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Cayman Blog theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Cayman Blog? We'd love your help. Cayman Blog is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/lorepirri/cayman-blog`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
+Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/blob/gh-pages/LICENSE) license.

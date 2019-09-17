@@ -38,14 +38,57 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eg
 
 Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
 
-```html
-<html>
-  <head>
-  </head>
-  <body>
-    <p>Hello, World!</p>
-  </body>
-</html>
+```csharp
+public void SelectTiles(List<Tile> tiles)
+{
+  for (int i = tiles.Count - 1; i >= 0; --i)
+    tiles[i].GetComponent<Renderer>().material.SetColor("_Color", selectedTileColor);
+}
+
+public void DeSelectTiles(List<Tile> tiles)
+{
+  for (int i = tiles.Count - 1; i >= 0; --i)
+    tiles[i].GetComponent<Renderer>().material.SetColor("_Color", defaultTileColor);
+}
+
+void SwapReference(ref Queue<Tile> a, ref Queue<Tile> b)
+{
+  Queue<Tile> temp = a;
+  a = b;
+  b = temp;
+}
+
+public Tile GetTile(Point p)
+{
+  return tiles.ContainsKey(p) ? tiles[p] : null;
+}
+
+public GameObject GetContent(Point p)
+{
+  return content.ContainsKey(p) ? content[p] : null;
+}
+
+void ClearSearch()
+{
+  foreach (Tile t in tiles.Values)
+  {
+    t.prev = null;
+    t.distance = int.MaxValue;
+  }
+}
+
+public void Load(LevelData data)
+{
+  for (int i=0; i < data.tiles.Count; ++i)
+  {
+    GameObject instance = Instantiate(tilePrefab) as GameObject;
+    Tile t = instance.GetComponent<Tile>();
+    t.Load(data.tiles[i]);
+    tiles.Add(t.pos, t);
+  }
+  updateBoardExtents();
+
+}
 ```
 
 

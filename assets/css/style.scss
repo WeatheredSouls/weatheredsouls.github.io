@@ -4,6 +4,24 @@
 @import 'jekyll-theme-cayman-blog';
 
 
-.page-header {
-    background-image: linear-gradient(120deg, #ae651d, #993715);
+.site-title,.site-title:visited,.site-title:hover{
+    color:#993715;
+}
+
+.site-nav .page-link{
+    color:#993715;
+}
+
+.page-header{
+    background-color:#993715;
+    background-image:linear-gradient(120deg, #ae651d, #993715)
+}
+
+.main-content h1,.main-content h2,.main-content h3,.main-content h4,.main-content h5,.main-content h6{
+    color:#993715
+}
+
+.site-footer .my-svg-icon:hover{
+    color:#993715;
+    fill:#993715;
 }
